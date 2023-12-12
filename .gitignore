@@ -1,0 +1,6 @@
+node_modules
+dist
+forta.config.json
+agent_id.txt
+toDo.txt
+.dockerignore
