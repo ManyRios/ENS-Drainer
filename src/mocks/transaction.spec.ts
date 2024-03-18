@@ -2,7 +2,7 @@ import { HandleTransaction, ethers } from "forta-agent";
 import { createAddress } from "forta-agent-tools";
 import { TestTransactionEvent } from "forta-agent-tools/lib/test";
 import { createTransferFromFinding } from "../findings";
-import { transferFunction } from "../constants";
+import { transferFunctions } from "../constants";
 import transactions from "../transactions";
 import { isScammerTransaction, getNameEns } from "../utils";
 
@@ -11,7 +11,7 @@ const { utils } = ethers;
 const addr1 = createAddress("0x001");
 const addr2 = createAddress("0x002");
 
-const testTransferIFace = new utils.Interface([transferFunction[0]]);
+const testTransferIFace = new utils.Interface([transferFunctions[0]]);
 
 const testCases: any[][] = [
   [addr1, addr2, 100],
@@ -43,11 +43,11 @@ describe("Transfer Agent", () => {
       .setTo(testCases[0][1])
       .addTraces({
         from: testCases[0][1],
-        function: transferFunction[0],
+        function: transferFunctions[0],
         arguments: testCases[0],
       });
 
-    const transfer = txEv.filterFunction(transferFunction);
+    const transfer = txEv.filterFunction(transferFunctions);
     const isScammer = isScammerTransaction(transfer[0].args.owner);
     expect(isScammer).toBeFalsy;
     const findings = await handleTransaction(txEv);
@@ -59,13 +59,13 @@ describe("Transfer Agent", () => {
       .setFrom(testCases[1][0])
       .setTo(testCases[1][1])
       .addTraces({
-        function: transferFunction[0],
+        function: transferFunctions[0],
         arguments: testCases[1],
       });
 
 
     const findings = await handleTransaction(txEv);
-    const transfer = txEv.filterFunction(transferFunction);
+    const transfer = txEv.filterFunction(transferFunctions);
     const {from, to } = transfer[0].args
     const isScammer = isScammerTransaction(from);
     const ensName = await getNameEns(from.toLowerCase())

@@ -1,12 +1,12 @@
 import { HandleTransaction, createTransactionEvent, ethers, keccak256 } from "forta-agent";
 import { TestTransactionEvent } from "forta-agent-tools/lib/test";
 import { provideHandleTransaction } from "../agent";
-import { transferFunction, ensRegistrationFunc } from "../constants";
+import { transferFunctions, ensRegistrationFunc } from "../constants";
 import { createAddress } from "forta-agent-tools";
 
 
 const {utils} = ethers;
-const testTransferIFace = new utils.Interface([transferFunction[0]]);
+const testTransferIFace = new utils.Interface([transferFunctions[0]]);
 const testEnsRegisIFace = new utils.Interface([ensRegistrationFunc]);
 
 const addr1 = createAddress('0x001');

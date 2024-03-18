@@ -23,6 +23,7 @@ const provideHandleTransaction = (): HandleTransaction => {
           name: name,
           address: owner,
         });
+        console.log(suspiciosEnsAddress.length)
       }
     });
 
