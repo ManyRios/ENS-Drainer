@@ -14,7 +14,7 @@ const provideHandleTransaction = (): HandleTransaction => {
     const { from, to, hash } = txEv;
 
     const isScammer = isScammerTransaction(from); // Checks if the address is already registered
-    const ensName = getNameEns(from); 
+    const ensName = getNameEns(from);
 
     const transferLog = txEv.filterLog(transferEvent);
     const transferFunc = txEv.filterFunction(transferFunctions);

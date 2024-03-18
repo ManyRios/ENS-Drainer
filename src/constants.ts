@@ -18,7 +18,7 @@ export let suspiciosEnsAddress: Suspects[] = [
   {
     name: "inferno-drainer-3",
     address: "0x00001f78189bE22C3498cFF1B8e02272C3220000",
-  }, 
+  },
   {
     name: "inferno-drainer-4",
     address: "0x00001f78189be22c3498cff1b8e02272c3220000",
@@ -29,8 +29,8 @@ export let suspiciosEnsAddress: Suspects[] = [
   },
   {
     name: "Fake_Phishing182232",
-    address: "0x0000553f880ffa3728b290e04e819053a3590000"
-  }
+    address: "0x0000553f880ffa3728b290e04e819053a3590000",
+  },
 ];
 
 export const ensRegistrationFunc =
@@ -43,7 +43,7 @@ export const transferFunctions = [
 ];
 
 export const transferEvent = [
-  "event Transfer(address indexed from, address indexed to, uint value)"
+  "event Transfer(address indexed from, address indexed to, uint value)",
 ];
 
 export const ensRegisterEvent =

@@ -1,30 +1,29 @@
 import { Finding, FindingSeverity, FindingType } from "forta-agent";
 
-
 export const createEnsFindigRegistration = (
-    name: string,
-    from: string,
-    txHash: string,
+  name: string,
+  from: string,
+  txHash: string
 ) => {
-    return Finding.fromObject({
-      name: `Suspicious ENS Register`,
-      description: `A ENS has been registered with the name ${name}`,
-      alertId: "ENSREG",
-      protocol: "ENS",
-      severity: FindingSeverity.Info,
-      type:  FindingType.Suspicious && FindingType.Scam,
-      metadata: {
+  return Finding.fromObject({
+    name: `Suspicious ENS Register`,
+    description: `A ENS has been registered with the name ${name}`,
+    alertId: "ENSREG",
+    protocol: "ENS",
+    severity: FindingSeverity.Info,
+    type: FindingType.Suspicious && FindingType.Scam,
+    metadata: {
       from,
       txHash: txHash,
-    }
-    })
-}
+    },
+  });
+};
 
 export const createTransferFromFinding = (
   name: string,
   from: string,
   txHash: string,
-  to: string,
+  to: string
 ) => {
   return Finding.fromObject({
     name: `Transfer ENS`,

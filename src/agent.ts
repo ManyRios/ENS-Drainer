@@ -1,11 +1,7 @@
-import {
-  Finding,
-  TransactionEvent,
-} from "forta-agent";
-import ensRegistration from './ens-registration'
+import { Finding, TransactionEvent } from "forta-agent";
+import ensRegistration from "./ens-registration";
 import transactions from "./transactions";
 import { Agent } from "./types";
-
 
 export const provideHandleTransaction = (
   ensRegistration: Agent,
@@ -15,7 +11,7 @@ export const provideHandleTransaction = (
     const findings = (
       await Promise.all([
         ensRegistration.handleTransaction(txEv),
-        transactions.handleTransaction(txEv)
+        transactions.handleTransaction(txEv),
       ])
     ).flat();
 
@@ -23,10 +19,7 @@ export const provideHandleTransaction = (
   };
 };
 
- module.exports = {
+module.exports = {
   provideHandleTransaction,
-  handleTransaction: provideHandleTransaction(
-    ensRegistration,
-    transactions
-  ),
+  handleTransaction: provideHandleTransaction(ensRegistration, transactions),
 };
