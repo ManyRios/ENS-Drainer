@@ -27,8 +27,8 @@ Describe each of the type of alerts fired by this agent
 
 - ENSDrainT
   - Fired when a suspicios ENS makes a transactionFrom 
-  - Severity is always set to "info" 
-  - Type is set to "suspicious" and "Scam" 
+  - Severity is always set to "high" 
+  - Type is set to "critical" and "Scam" 
   - Mention any other type of metadata fields included with this alert
 
 ## Test Data
