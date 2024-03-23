@@ -1,7 +1,7 @@
 {
   "name": "ens-drainer",
   "displayName": "ENS Drainer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "forta bot that monitor suspicious ens registration and their transactions",
   "longDescription": "the bot identifies ens registrations with suspicious name and their transactions since is registered",
   "repository": "https://github.com/ManyRios/ENS-Drainer",

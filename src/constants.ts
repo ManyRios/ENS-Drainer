@@ -1,7 +1,7 @@
 import { Suspects } from "./types";
 
 export const regex = new RegExp(
-  "(?:inferno|drainer|fake|scam|rob|steal|hack|stealyourmoney)(.eth)?",
+  "(?:inferno|drainer|fake|scam|rob|steal|hack|stealyourmoney|phishing)(.eth)?",
   "i"
 );
 
