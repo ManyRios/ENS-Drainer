@@ -3,8 +3,12 @@ import {
   createTransferFromFinding,
   createTransferFromFindingWNto,
 } from "./findings";
-import { transferEvent, transferFunctions } from "./constants";
-import { isScammerTransaction, getNameEns } from "./utils";
+import {
+  transferEvent,
+  transferFunctions,
+  suspiciosEnsAddress,
+} from "./constants";
+import { isScammerTransaction, getNameEns, getEnsName } from "./utils";
 
 const provideHandleTransaction = (): HandleTransaction => {
   return async function handlerTransaction(
@@ -13,9 +17,6 @@ const provideHandleTransaction = (): HandleTransaction => {
     const findings: Finding[] = [];
     const { from, to, hash } = txEv;
 
-    const isScammer = isScammerTransaction(from); // Checks if the address is already registered
-    const ensName = getNameEns(from);
-
     const transferLog = txEv.filterLog(transferEvent);
     const transferFunc = txEv.filterFunction(transferFunctions);
 
@@ -23,8 +24,21 @@ const provideHandleTransaction = (): HandleTransaction => {
 
     const transfer = transferFunc.length ? transferFunc : transferLog;
 
+    const isScammer = isScammerTransaction(from); // Checks if the address is already registered
+    
+    const ens = await getEnsName(from);
+
+    if (!isScammer && ens?.names) {
+      suspiciosEnsAddress.push({
+        name: ens.names,
+        address: from
+       })
+    }
+    const ensName = getNameEns(from);
+
     transfer.forEach(() => {
-      if (isScammer && ensName != "error") {
+      console.log(suspiciosEnsAddress);
+      if ((isScammer || ens?.scammer) && ensName != "error") {
         if (to) {
           findings.push(createTransferFromFinding(ensName, from, hash, to));
         } else {

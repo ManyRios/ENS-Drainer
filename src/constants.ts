@@ -21,16 +21,32 @@ export let suspiciosEnsAddress: Suspects[] = [
   },
   {
     name: "inferno-drainer-4",
-    address: "0x00001f78189be22c3498cff1b8e02272c3220000",
-  },
+    address: "0x0000553F880fFA3728b290e04E819053A3590000",
+  }, 
   {
     name: "Fake_Phishing188246",
     address: "0x53d0E4dAb3E125dd25EcfB24Ca610075Fa9bC8e1",
   },
   {
-    name: "Fake_Phishing182232",
-    address: "0x0000553f880ffa3728b290e04e819053a3590000",
+    name: "PinkDrainer: Wallet 1",
+    address: "0x63605E53D422C4F1ac0e01390AC59aAf84C44A51"
   },
+  {
+    name: "PinkDrainer: Wallet 2",
+    address: "0x9fA7bB759641FCd37fe4aE41f725e0f653f2C726"
+  },
+  {
+    name: "Fake_Phishing322880",
+    address: "0x67E5Ae3E1Ad16D4c020DB518f2A9943D4F73d6eF"
+  },
+  {
+    name: "fakephishing7284",
+    address: "0x8d9004e297950CAC958729153fD7Bb707d691338"
+  },
+  {
+    name: "Fake_Phishing187019",
+    address: "0x0000db5c8B030ae20308ac975898E09741e70000"
+  }
 ];
 
 export const ensRegistrationFunc =
@@ -50,3 +66,11 @@ export const ensRegisterEvent =
   "event NameRegistered(string name,bytes32 label,address owner, uint256 baseCost, uint256 premium, uint256 expires)";
 
 export const multicall = ["function multicall(tuple[] calls)"];
+
+
+
+/* 
+
+
+
+*/

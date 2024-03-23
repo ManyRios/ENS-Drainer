@@ -4,3 +4,4 @@ publish.log
 forta.config.json
 agent_id.txt
 .dockerignore
+LICENSE.md
