@@ -25,19 +25,18 @@ const provideHandleTransaction = (): HandleTransaction => {
     const transfer = transferFunc.length ? transferFunc : transferLog;
 
     const isScammer = isScammerTransaction(from); // Checks if the address is already registered
-    
+
     const ens = await getEnsName(from);
 
     if (!isScammer && ens?.names) {
       suspiciosEnsAddress.push({
         name: ens.names,
-        address: from
-       })
+        address: from,
+      });
     }
     const ensName = getNameEns(from);
 
     transfer.forEach(() => {
-      console.log(suspiciosEnsAddress);
       if ((isScammer || ens?.scammer) && ensName != "error") {
         if (to) {
           findings.push(createTransferFromFinding(ensName, from, hash, to));
