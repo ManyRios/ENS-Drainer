@@ -2,6 +2,7 @@
 FROM node:12-alpine AS builder
 WORKDIR /app
 COPY . .
+RUN npm install typescript@5.0.4
 RUN npm ci
 RUN npm run build
 
