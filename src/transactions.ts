@@ -28,16 +28,19 @@ const provideHandleTransaction = (): HandleTransaction => {
 
     const ens = await getEnsName(from);
 
-    if (!isScammer && ens?.names) {
-      suspiciosEnsAddress.push({
-        name: ens.names,
-        address: from,
-      });
+    if (!isScammer) {
+      if (ens?.names) {
+        suspiciosEnsAddress.push({
+          name: ens?.names,
+          address: from,
+        });
+      }
     }
+
     const ensName = getNameEns(from);
 
     transfer.forEach(() => {
-      if ((isScammer || ens?.scammer) && ensName != "error") {
+      if (isScammer || ens?.scammer) {
         if (to) {
           findings.push(createTransferFromFinding(ensName, from, hash, to));
         } else {

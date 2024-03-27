@@ -20,7 +20,7 @@ export const getNameEns = (address: string) => {
 
 export const getEnsName = async (address: string) => {
   const client = createPublicClient({
-    chain: mainnet || arbitrum || optimism || avalanche || bsc || fantom || polygon ,
+    chain: mainnet || optimism || avalanche || bsc || fantom || polygon ,
     transport: http(),
   })
   
@@ -30,6 +30,7 @@ export const getEnsName = async (address: string) => {
   })
 
   if(names){
+    console.log(names)
     const scammer = regex.test(names)
     return {
       names, 
