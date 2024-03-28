@@ -1,7 +1,7 @@
 import { Suspects } from "./types";
 
 export const regex = new RegExp(
-  "(?:inferno|drainer|fake|scam|rob|steal|hack|stealyourmoney|phishing)(.eth)?",
+  "(?:inferno|drainer|fake|scam|rob|steal|hack|money|phishing|pink)(.eth)?",
   "i"
 );
 
@@ -66,11 +66,3 @@ export const ensRegisterEvent =
   "event NameRegistered(string name,bytes32 label,address owner, uint256 baseCost, uint256 premium, uint256 expires)";
 
 export const multicall = ["function multicall(tuple[] calls)"];
-
-
-
-/* 
-
-
-
-*/

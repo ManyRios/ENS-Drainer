@@ -30,11 +30,12 @@ export const getEnsName = async (address: string) => {
   })
 
   if(names){
-    console.log(names)
-    const scammer = regex.test(names)
-    return {
-      names, 
-      scammer
-    }
+    const scammer = regex.test(names.toLowerCase())
+    if(scammer){
+      return {
+        names, 
+        scammer
+      }
+    }    
   }
 }
