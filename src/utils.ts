@@ -1,6 +1,5 @@
+import { ethers } from "forta-agent";
 import { regex, suspiciosEnsAddress } from "./constants";
-import { createPublicClient, http } from 'viem'
-import { mainnet } from 'viem/chains'
 
 export const isScammerTransaction = (address: string) => {
   for (const ens of suspiciosEnsAddress) {
@@ -18,24 +17,18 @@ export const getNameEns = (address: string) => {
   return "error";
 };
 
+// This will works with a appropiate api-key
 export const getEnsName = async (address: string) => {
-  const client = createPublicClient({
-    chain: mainnet,
-    transport: http(),
-  })
-  
-  const addr = address.replace(/^0x/, "")
-  const names = await client.getEnsName({
-    address: `0x${addr}`,
-  })
-
-  if(names){
-    const scammer = regex.test(names.toLowerCase())
-    if(scammer){
+  const prov = new ethers.providers.InfuraProvider(1);
+  const ens = await prov.lookupAddress(address);
+  console.log(ens);
+  if (ens) {
+    const scammer = regex.test(ens.toString().toLowerCase());
+    if (scammer) {
       return {
-        names, 
-        scammer
-      }
-    }    
+        ens,
+        scammer,
+      };
+    }
   }
-}
+};

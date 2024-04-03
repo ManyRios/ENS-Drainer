@@ -1,14 +1,20 @@
 {
   "name": "ens-drainer",
   "displayName": "ENS Drainer",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "forta bot that monitor suspicious ens registration and their transactions",
   "longDescription": "the bot identifies ens registrations with suspicious name and their transactions since is registered",
   "repository": "https://github.com/ManyRios/ENS-Drainer",
   "licenseUrl": "https://github.com/forta-network/forta-bot-sdk/blob/master/starter-project/LICENSE.md",
   "promoUrl": "https://forta.org",
   "chainIds": [
-    1
+    1,
+    10,
+    56,
+    137,
+    250,
+    42161,
+    43114
   ],
   "scripts": {
     "build": "tsc",
@@ -36,8 +42,7 @@
     "dotenv": "^16.3.1",
     "forta-agent": "^0.1.45",
     "forta-agent-tools": "^3.2.10",
-    "lru-cache": "^5.1.1",
-    "viem": "^0.3.5"
+    "lru-cache": "^5.1.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",

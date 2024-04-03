@@ -1,4 +1,8 @@
-import { Finding, HandleTransaction, TransactionEvent } from "forta-agent";
+import {
+  Finding,
+  HandleTransaction,
+  TransactionEvent,
+} from "forta-agent";
 import {
   createTransferFromFinding,
   createTransferFromFindingWNto,
@@ -26,12 +30,12 @@ const provideHandleTransaction = (): HandleTransaction => {
 
     const isScammer = isScammerTransaction(from); // Checks if the address is already registered
 
-    const ens = await getEnsName(from);
+    const getEns = await getEnsName(from);
 
     if (!isScammer) {
-      if (ens?.names) {
+      if (getEns) {
         suspiciosEnsAddress.push({
-          name: ens?.names,
+          name: getEns.ens,
           address: from,
         });
       }
@@ -40,7 +44,7 @@ const provideHandleTransaction = (): HandleTransaction => {
     const ensName = getNameEns(from);
 
     transfer.forEach(() => {
-      if (isScammer || ens?.scammer) {
+      if (isScammer || getEns?.scammer) {
         if (to) {
           findings.push(createTransferFromFinding(ensName, from, hash, to));
         } else {

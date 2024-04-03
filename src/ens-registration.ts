@@ -15,7 +15,7 @@ const provideHandleTransaction = (): HandleTransaction => {
 
     getEns.forEach((ens) => {
       const { name, owner } = ens.args;
-      const identify = regex.test(name.toLowerCase());
+      const identify = regex.test(name);
       // If the owner changes the name the address will be the same
       if (identify) {
         findings.push(createEnsFindigRegistration(name, from, hash));
