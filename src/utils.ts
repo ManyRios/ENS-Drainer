@@ -1,6 +1,6 @@
 import { regex, suspiciosEnsAddress } from "./constants";
 import { createPublicClient, http } from 'viem'
-import { mainnet, arbitrum, optimism, avalanche, bsc, fantom, polygon } from 'viem/chains'
+import { mainnet } from 'viem/chains'
 
 export const isScammerTransaction = (address: string) => {
   for (const ens of suspiciosEnsAddress) {
@@ -20,7 +20,7 @@ export const getNameEns = (address: string) => {
 
 export const getEnsName = async (address: string) => {
   const client = createPublicClient({
-    chain: mainnet || optimism || avalanche || bsc || fantom || polygon ,
+    chain: mainnet,
     transport: http(),
   })
   
