@@ -10,9 +10,9 @@ import {
 import {
   transferEvent,
   transferFunctions,
-  suspiciosEnsAddress,
 } from "./constants";
-import { isScammerTransaction, getNameEns, getEnsName } from "./utils";
+import {suspiciosEnsAddress} from './drainers-services'
+import { isScammerTransaction, getNameEns } from "./utils";
 
 const provideHandleTransaction = (): HandleTransaction => {
   return async function handlerTransaction(
@@ -23,28 +23,16 @@ const provideHandleTransaction = (): HandleTransaction => {
 
     const transferLog = txEv.filterLog(transferEvent);
     const transferFunc = txEv.filterFunction(transferFunctions);
-
+   
     if (!transferFunc.length && !transferLog.length) return findings;
 
     const transfer = transferFunc.length ? transferFunc : transferLog;
 
     const isScammer = isScammerTransaction(from); // Checks if the address is already registered
-
-    const getEns = await getEnsName(from);
-
-    if (!isScammer) {
-      if (getEns) {
-        suspiciosEnsAddress.push({
-          name: getEns.ens,
-          address: from,
-        });
-      }
-    }
-
     const ensName = getNameEns(from);
 
     transfer.forEach(() => {
-      if (isScammer || getEns?.scammer) {
+      if (isScammer) {
         if (to) {
           findings.push(createTransferFromFinding(ensName, from, hash, to));
         } else {

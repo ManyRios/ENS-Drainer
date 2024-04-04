@@ -1,6 +1,7 @@
 import { Finding, HandleTransaction, TransactionEvent } from "forta-agent";
 import { createEnsFindigRegistration } from "./findings";
-import { ensRegistrationFunc, suspiciosEnsAddress, regex } from "./constants";
+import { ensRegistrationFunc, regex } from "./constants";
+import { suspiciosEnsAddress } from './drainers-services'
 
 const provideHandleTransaction = (): HandleTransaction => {
   return async function handlerTransaction(

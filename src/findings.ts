@@ -27,7 +27,7 @@ export const createTransferFromFinding = (
 ) => {
   return Finding.fromObject({
     name: `Transfer ENS`,
-    description: `A transfer to other address has been made from a possible ENS Service Drainer ${name}`,
+    description: `A transfer has been made from a possible ENS Service Drainer ${name} to address ${to}`,
     alertId: "ENSDrainT",
     protocol: "ENS",
     severity: FindingSeverity.High && FindingSeverity.Critical,
