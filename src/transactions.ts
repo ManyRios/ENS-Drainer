@@ -19,7 +19,7 @@ const provideHandleTransaction = (): HandleTransaction => {
     txEv: TransactionEvent
   ): Promise<Finding[]> {
     const findings: Finding[] = [];
-    const { from, to, hash, logs } = txEv;
+    const { from, hash } = txEv;
 
     const transferLog = txEv.filterLog(transferEvent);
     const transferFunc = txEv.filterFunction(transferFunctions);
