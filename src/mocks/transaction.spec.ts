@@ -15,7 +15,7 @@ const testTransferIFace = new utils.Interface([transferFunctions[0]]);
 
 const testCases: any[][] = [
   [addr1, addr2, 100],
-  ["0x8413c544095f7e69d4ad3bfcf4b77deedda0cc39", addr2, 100],
+  ["0x8413c544095f7e69d4ad3bfcf4b77deedda0cc39", addr2, 100, ],
 ];
 
 const encodedSwapCalls: string[] = [
@@ -68,9 +68,9 @@ describe("Transfer Agent", () => {
     const transfer = txEv.filterFunction(transferFunctions);
     const {from, to } = transfer[0].args
     const isScammer = isScammerTransaction(from);
-    const ensName = await getNameEns(from.toLowerCase())
+    const ensName = getNameEns(from.toLowerCase())
     
     expect(isScammer).toBeTruthy;
-    expect(findings).toEqual([createTransferFromFinding(ensName, from.toLowerCase(), to, '0x' )]);
+    expect(findings).toEqual([createTransferFromFinding(ensName, from.toLowerCase(), '0x', '0x001', '100', to )]);
   });
 });

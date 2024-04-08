@@ -1,6 +1,5 @@
 export const regex = new RegExp(
-  "(?:inferno|drainer|fake|scam|monkey|phishing|pink|angel|pussy|venom|ms)(.eth)?",
-  "i"
+  "inferno|drainer|fake|scam|monkey|phishing|pink|angel|pussy|venom|ms", "gi"
 );
 
 export const ensRegistrationFunc =
@@ -20,8 +19,3 @@ export const ensRegisterEvent =
   "event NameRegistered(string name,bytes32 label,address owner, uint256 baseCost, uint256 premium, uint256 expires)";
 
 export const multicall = ["function multicall(tuple[] calls)"];
-
-
-
-
-

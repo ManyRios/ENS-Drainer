@@ -31,6 +31,10 @@ export let suspiciosEnsAddress: Suspects[] = [
       address: "0x9fA7bB759641FCd37fe4aE41f725e0f653f2C726"
     },
     {
+      name: "Fake_Phishing269918",
+      address: "0x8FaE6d798Ec0A2127f962CE49573492894D2E70e"
+    },
+    {
       name: "Fake_Phishing322880",
       address: "0x67E5Ae3E1Ad16D4c020DB518f2A9943D4F73d6eF"
     },

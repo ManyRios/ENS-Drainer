@@ -18,6 +18,7 @@ export const getNameEns = (address: string) => {
   return "error";
 };
 
+
 /*
 // This will works with a appropiate api-key
 export const getEnsName = async (address: string) => {

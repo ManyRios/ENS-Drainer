@@ -11,15 +11,15 @@ import {
   transferEvent,
   transferFunctions,
 } from "./constants";
-import {suspiciosEnsAddress} from './drainers-services'
 import { isScammerTransaction, getNameEns } from "./utils";
+import BigNumber from "bignumber.js";
 
 const provideHandleTransaction = (): HandleTransaction => {
   return async function handlerTransaction(
     txEv: TransactionEvent
   ): Promise<Finding[]> {
     const findings: Finding[] = [];
-    const { from, to, hash } = txEv;
+    const { from, to, hash, logs } = txEv;
 
     const transferLog = txEv.filterLog(transferEvent);
     const transferFunc = txEv.filterFunction(transferFunctions);
@@ -31,12 +31,18 @@ const provideHandleTransaction = (): HandleTransaction => {
     const isScammer = isScammerTransaction(from); // Checks if the address is already registered
     const ensName = getNameEns(from);
 
-    transfer.forEach(() => {
+    transfer.forEach((txEvt) => {
+      const {  to, value} = txEvt.args
+      const victim = txEvt.args.from
+      const amount = BigNumber(value.toString())
+        .dividedBy(10 ** 18)
+        .toFixed(2);
+
       if (isScammer) {
         if (to) {
-          findings.push(createTransferFromFinding(ensName, from, hash, to));
+          findings.push(createTransferFromFinding(ensName, from, hash, victim, amount, to));
         } else {
-          findings.push(createTransferFromFindingWNto(ensName, from, hash));
+          findings.push(createTransferFromFindingWNto(ensName, from, hash, victim, amount));
         }
       }
     });
