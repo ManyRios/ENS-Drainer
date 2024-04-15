@@ -29,7 +29,7 @@ export const createTransferFromFinding = (
 ) => {
   return Finding.fromObject({
     name: `Transfer from ENS`,
-    description: `A transfer has been made from ${name} The victim is the address: ${victim} for a value of its assets: ${value} the funds has been sent to the address ${to}`,
+    description: `A Scam has been detected from ${name} The victim is the address: ${victim} for a value of its assets: ${value} the funds has been sent to the address ${to}`,
     alertId: "ENSDrainT",
     protocol: "ENS",
     severity: FindingSeverity.High && FindingSeverity.Critical,
@@ -46,12 +46,12 @@ export const createTransferFromFindingWNto = (
   name: string,
   from: string,
   txHash: string,
-  victim: string,
   value: string,
+  to: string
 ) => {
   return Finding.fromObject({
     name: `Transfer ENS`,
-    description: `A transfer has been made from ${name} The victim is the address: ${victim} for a value of its assets: ${value} the funds has been sent to a unknow address`,
+    description: `The Scammer ${name} transfer ${value} funds to the address ${to}`,
     alertId: "ENSDrainT",
     protocol: "ENS",
     severity: FindingSeverity.High && FindingSeverity.Critical,

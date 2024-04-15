@@ -23,6 +23,10 @@ export let suspiciosEnsAddress: Suspects[] = [
       address: "0x53d0E4dAb3E125dd25EcfB24Ca610075Fa9bC8e1",
     },
     {
+      name: "PinkDrainer",
+      address: "0xA5e4B451D0A3C3D05Fc3A8076fda45952b8f4F83"
+    },
+    {
       name: "PinkDrainer: Wallet 1",
       address: "0x63605E53D422C4F1ac0e01390AC59aAf84C44A51"
     },
@@ -31,36 +35,32 @@ export let suspiciosEnsAddress: Suspects[] = [
       address: "0x9fA7bB759641FCd37fe4aE41f725e0f653f2C726"
     },
     {
-      name: "Fake_Phishing269918",
+      name: "PinkDrainer Fake_Phishing327263",
+      address: "0x6B745C2C78e95540b2D71A4e60a38094905E7152"
+    },
+    {
+      name: "angel-drainer",
+      address: "0x412f10AAd96fD78da6736387e2C84931Ac20313f"
+    },
+    {
+      name: "Pink Drainer: Fake_Phishing269918",
       address: "0x8FaE6d798Ec0A2127f962CE49573492894D2E70e"
     },
     {
-      name: "Fake_Phishing322880",
+      name: "Pink Drainer: Fake_Phishing322880",
       address: "0x67E5Ae3E1Ad16D4c020DB518f2A9943D4F73d6eF"
     },
     {
-      name: "Fakephishing7284",
+      name: "fakephishing7284 linked to PinkDrainer",
       address: "0x8d9004e297950CAC958729153fD7Bb707d691338"
     },
     {
-      name: "Fake_Phishing187019",
+      name: "Fake_Phishing187019 linked to Inferno Drainer: ",
       address: "0x0000db5c8B030ae20308ac975898E09741e70000"
     },
     {
-      name: 'Fake_Phishing180575',
+      name: 'spawn-drainer',
       address: '0x000006d683610e61Ad9ee4B487fAE3904b392b9E'
-    },
-    {
-      name: 'Fake_Phishing185088',
-      address: '0x20416dbb736d78b4c73b8272d408928431f7fc17'
-    },
-    {
-      name: 'Fake_Phishing178627',
-      address: '0xee23459989798bb9fce8291e7011f7cbb3cb1193'
-    },
-    {
-      name: 'Fake_Phishing187236',
-      address: '0xe13fdc319237695dbb357fa6d71b5f612efa193f'
     },
     {
       name: 'PussyDrainer Fake_Phishing179506',

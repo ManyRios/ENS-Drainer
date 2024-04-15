@@ -17,7 +17,7 @@ const provideHandleTransaction = (): HandleTransaction => {
     getEns.forEach((ens) => {
       const { name, owner } = ens.args;
 
-      const identify = regex.test('PinkDrainer');
+      const identify = regex.test(name);
       
       console.log(identify)
       // If the owner changes the name the address will be the same
