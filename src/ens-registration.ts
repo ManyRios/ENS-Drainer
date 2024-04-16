@@ -1,6 +1,6 @@
 import { Finding, HandleTransaction, TransactionEvent } from "forta-agent";
 import { createEnsFindigRegistration } from "./findings";
-import { ensRegistrationFunc, regex } from "./constants";
+import { ensRegistrationFunc, regex, registerInServiceDrainer } from "./constants";
 import { suspiciosEnsAddress } from './drainers-services'
 
 const provideHandleTransaction = (): HandleTransaction => {
@@ -9,17 +9,19 @@ const provideHandleTransaction = (): HandleTransaction => {
   ): Promise<Finding[]> {
     const findings: Finding[] = [];
     const getEns = txEv.filterFunction(ensRegistrationFunc);
+    //const getReg = txEv.filterFunction(registerInServiceDrainer);
 
+    
     if (!getEns) return findings;
 
     const { from, hash } = txEv;
+
 
     getEns.forEach((ens) => {
       const { name, owner } = ens.args;
 
       const identify = regex.test(name);
       
-      console.log(identify)
       // If the owner changes the name the address will be the same
       if (identify) {
         findings.push(createEnsFindigRegistration(name, from, hash));

@@ -119,4 +119,18 @@ export let suspiciosEnsAddress: Suspects[] = [
       address: '0x0000545c5d293bab473d0e67abfac4d9de2e0000'
     }
   ];
+
+
+  export const contractDrainers = {
+    infernoDrainer: [
+      {
+        address: '0x000062Accd1a9d62eF428eC86cA3dD4f45120000'
+      }
+    ],
+    pinkDrainer: [
+      {
+        address: '0x5D775caA7A0a56cd2D56a480b0f92E3900Fe9722'
+      }
+    ]
+  }
   

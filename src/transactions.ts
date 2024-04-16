@@ -32,13 +32,13 @@ const provideHandleTransaction = (): HandleTransaction => {
           .dividedBy(10 ** 18)
           .toFixed(2);
 
-        const Scammer = isScammerTransaction(victim)
+        const scammer = isScammerTransaction(victim)
           
-        if (to && !Scammer) {
+        if (to && !scammer) {
           findings.push(
             createTransferFromFinding(ensName, from, hash, victim, amount, to)
           );
-        } else if(Scammer) {
+        } else if(scammer) {
           findings.push(
             createTransferFromFindingWNto(ensName, from, hash, amount, to)
           );
